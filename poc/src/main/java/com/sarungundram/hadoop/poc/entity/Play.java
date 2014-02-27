@@ -1,86 +1,119 @@
 package com.sarungundram.hadoop.poc.entity;
 
-public class Play {
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
 
-	private int period;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
+
+public class Play implements Writable {
+
+	private IntWritable period = new IntWritable();
 	
-	private String etype;
+	private Text etype = new Text();
 	
-	private String team;
+	private Text team = new Text();
 	
-	private String player;
+	private Text player = new Text();
 	
-	private int points;
+	private IntWritable points = new IntWritable();
 	
-	private int num;
+	private IntWritable num = new IntWritable();
 	
-	private int outof;
+	private IntWritable outof = new IntWritable();
 	
-	private String result;
+	private Text result = new Text();
+	
+	public void write(DataOutput out) throws IOException {
+		period.write(out);
+		etype.write(out);
+		team.write(out);
+		player.write(out);
+		points.write(out);
+		num.write(out);
+		outof.write(out);
+		result.write(out);
+	}
+	
+	public void readFields(DataInput in) throws IOException {
+		period.readFields(in);
+		etype.readFields(in);
+		team.readFields(in);
+		player.readFields(in);
+		points.readFields(in);
+		num.readFields(in);
+		outof.readFields(in);
+		result.readFields(in);
+	}
 
 	public int getPeriod() {
-		return period;
+		return period.get();
 	}
 
 	public void setPeriod(int period) {
-		this.period = period;
+		this.period.set(period);
 	}
 
 	public String getEtype() {
-		return etype;
+		return etype.toString();
 	}
 
 	public void setEtype(String etype) {
-		this.etype = etype;
+		this.etype.set(etype);
 	}
 
 	public String getTeam() {
-		return team;
+		return team.toString();
 	}
 
 	public void setTeam(String team) {
-		this.team = team;
+		this.team.set(team);
 	}
 
 	public String getPlayer() {
-		return player;
+		return player.toString();
 	}
 
 	public void setPlayer(String player) {
-		this.player = player;
+		this.player.set(player);
 	}
 
 	public int getPoints() {
-		return points;
+		return points.get();
 	}
 
 	public void setPoints(int points) {
-		this.points = points;
+		this.points.set(points);
 	}
 
 	public int getNum() {
-		return num;
+		return num.get();
 	}
 
 	public void setNum(int num) {
-		this.num = num;
+		this.num.set(num);
 	}
 
 	public int getOutof() {
-		return outof;
+		return outof.get();
 	}
 
 	public void setOutof(int outof) {
-		this.outof = outof;
+		this.outof.set(outof);
 	}
 
 	public String getResult() {
-		return result;
+		return result.toString();
 	}
 
 	public void setResult(String result) {
-		this.result = result;
+		this.result.set(result);
 	}
+
 	
+	
+
 	
 }

@@ -91,4 +91,21 @@ public class PlayKey implements WritableComparable<PlayKey> {
 	public Text getAwayTeam() {
 		return awayTeam;
 	}
+
+	public void setDate(Text date) {
+		this.date = date;
+	}
+
+	public void setHomeTeam(Text homeTeam) {
+		this.homeTeam = homeTeam;
+	}
+
+	public void setAwayTeam(Text awayTeam) {
+		this.awayTeam = awayTeam;
+	}
+
+	public void setOffset(LongWritable offset) {
+		this.offset = offset;
+	}
+	
 }

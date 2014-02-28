@@ -26,17 +26,71 @@ public class Play implements Writable {
 	
 	private Text result = new Text();
 	
-	public void write(DataOutput out) throws IOException {
-		period.write(out);
-		etype.write(out);
-		team.write(out);
-		player.write(out);
-		points.write(out);
-		num.write(out);
-		outof.write(out);
-		result.write(out);
+	
+	public IntWritable getPeriod() {
+		return period;
+	}
+
+	public Text getEtype() {
+		return etype;
+	}
+
+	public Text getTeam() {
+		return team;
+	}
+
+	public Text getPlayer() {
+		return player;
+	}
+
+	public IntWritable getPoints() {
+		return points;
+	}
+
+	public IntWritable getNum() {
+		return num;
+	}
+
+	public IntWritable getOutof() {
+		return outof;
+	}
+
+	public Text getResult() {
+		return result;
+	}
+
+	public String getEtypeValue() {
+		return etype.toString();
 	}
 	
+	public int getNumValue() {
+		return num.get();
+	}
+
+	public int getOutofValue() {
+		return outof.get();
+	}
+
+	public int getPeriodValue() {
+		return period.get();
+	}
+
+	public String getPlayerValue() {
+		return player.toString();
+	}
+
+	public int getPointsValue() {
+		return points.get();
+	}
+
+	public String getResultValue() {
+		return result.toString();
+	}
+
+	public String getTeamValue() {
+		return team.toString();
+	}
+
 	public void readFields(DataInput in) throws IOException {
 		period.readFields(in);
 		etype.readFields(in);
@@ -48,68 +102,47 @@ public class Play implements Writable {
 		result.readFields(in);
 	}
 
-	public int getPeriod() {
-		return period.get();
-	}
-
-	public void setPeriod(int period) {
-		this.period.set(period);
-	}
-
-	public String getEtype() {
-		return etype.toString();
-	}
-
 	public void setEtype(String etype) {
 		this.etype.set(etype);
-	}
-
-	public String getTeam() {
-		return team.toString();
-	}
-
-	public void setTeam(String team) {
-		this.team.set(team);
-	}
-
-	public String getPlayer() {
-		return player.toString();
-	}
-
-	public void setPlayer(String player) {
-		this.player.set(player);
-	}
-
-	public int getPoints() {
-		return points.get();
-	}
-
-	public void setPoints(int points) {
-		this.points.set(points);
-	}
-
-	public int getNum() {
-		return num.get();
 	}
 
 	public void setNum(int num) {
 		this.num.set(num);
 	}
 
-	public int getOutof() {
-		return outof.get();
-	}
-
 	public void setOutof(int outof) {
 		this.outof.set(outof);
 	}
 
-	public String getResult() {
-		return result.toString();
+	public void setPeriod(int period) {
+		this.period.set(period);
+	}
+
+	public void setPlayer(String player) {
+		this.player.set(player);
+	}
+
+	public void setPoints(int points) {
+		this.points.set(points);
 	}
 
 	public void setResult(String result) {
 		this.result.set(result);
+	}
+
+	public void setTeam(String team) {
+		this.team.set(team);
+	}
+
+	public void write(DataOutput out) throws IOException {
+		period.write(out);
+		etype.write(out);
+		team.write(out);
+		player.write(out);
+		points.write(out);
+		num.write(out);
+		outof.write(out);
+		result.write(out);
 	}
 
 	

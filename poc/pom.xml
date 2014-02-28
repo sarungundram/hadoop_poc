@@ -33,6 +33,5 @@
 			<artifactId>mrunit</artifactId>
 			<version>0.8.0-incubating</version>
 		</dependency>
-
 	</dependencies>
 </project>

@@ -13,7 +13,9 @@ public class LBJFreeThrowPctMapper extends Mapper<PlayKey, Play, NullWritable, T
 
 	@Override
 	protected void map(PlayKey key, Play value, Context context) throws IOException, InterruptedException {
-		if ("free throw".equals(value.getEtypeValue()) && value.getPlayerValue().equals("LeBron James")) {
+		String inputPlayer = context.getConfiguration().get("player.name");
+		if ("free throw".equals(value.getEtypeValue())
+				&& value.getPlayerValue().equalsIgnoreCase(inputPlayer)) {
 			System.out.println(key.getHomeTeam() + " vs " + key.getAwayTeam() + " - " + value.getResultValue());
 			context.write(NullWritable.get(), value.getResult());
 		}

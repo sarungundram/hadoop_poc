@@ -11,6 +11,7 @@ public class PlayParser {
 	private static short PLAYER_INDEX = 23;
 	private static short POINTS_INDEX = 24;
 	private static short RESULT_INDEX = 27;
+	private static short TYPE_INDEX = 29;
 
 	public Play parse(String line, long offset) {
 		Play play = new Play();
@@ -31,6 +32,8 @@ public class PlayParser {
 						play.setPoints(Integer.parseInt(split[POINTS_INDEX]));
 					if (RESULT_INDEX < split.length)
 						play.setResult(split[RESULT_INDEX]);
+					if (TYPE_INDEX < split.length)
+						play.setType(split[TYPE_INDEX]);
 				}
 			}
 		} catch (Throwable t) {

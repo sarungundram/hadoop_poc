@@ -26,6 +26,8 @@ public class Play implements Writable {
 	
 	private Text result = new Text();
 	
+	private Text type = new Text();
+	
 	
 	public IntWritable getPeriod() {
 		return period;
@@ -90,6 +92,10 @@ public class Play implements Writable {
 	public String getTeamValue() {
 		return team.toString();
 	}
+	
+	public String getTypeValue() {
+		return type.toString();
+	}
 
 	public void readFields(DataInput in) throws IOException {
 		period.readFields(in);
@@ -100,6 +106,7 @@ public class Play implements Writable {
 		num.readFields(in);
 		outof.readFields(in);
 		result.readFields(in);
+		type.readFields(in);
 	}
 
 	public void setEtype(String etype) {
@@ -133,6 +140,10 @@ public class Play implements Writable {
 	public void setTeam(String team) {
 		this.team.set(team);
 	}
+	
+	public void setType(String type) {
+		this.type.set(type);
+	}
 
 	public void write(DataOutput out) throws IOException {
 		period.write(out);
@@ -143,6 +154,7 @@ public class Play implements Writable {
 		num.write(out);
 		outof.write(out);
 		result.write(out);
+		type.write(out);
 	}
 
 	
